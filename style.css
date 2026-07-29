@@ -100,13 +100,9 @@ h1{
 }
 
 .characters img{
-
-   .character img{
-    width:min(180px, 60vw);
+    width:180px;
     height:auto;
-
     animation:float 3.5s ease-in-out infinite;
-
     user-select:none;
 
 }
