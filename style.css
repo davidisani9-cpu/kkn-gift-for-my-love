@@ -99,11 +99,17 @@ h1{
 
 }
 
-.characters img{
-    width:180px;
-    height:auto;
-    animation:float 3.5s ease-in-out infinite;
-    user-select:none;
+.characters{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:end;
+
+    gap:18px;
+
+    margin-bottom:25px;
 
 }
 
