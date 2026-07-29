@@ -1,165 +1,237 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background: url("assets/bg.png");
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* Kita ganti jadi overflow-x agar aman kalau sewaktu-waktu layarnya sangat kecil */
-    overflow-x: hidden; 
+body{
+    font-family:'Poppins',sans-serif;
+    background:url("assets/bg.png") center/cover no-repeat;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
 }
 
-.overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(255, 255, 255, .18);
-    backdrop-filter: blur(6px);
-    z-index: 1; /* Pastikan overlay tetap di belakang */
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(255,255,255,.18);
+    backdrop-filter:blur(6px);
+    z-index:1;
 }
 
-.card {
-    position: relative;
-    z-index: 2;
-    width: 420px;
-    max-width: 90%;
-    padding: 35px 30px; /* Padding sedikit disesuaikan agar lebih lega di HP */
-    border-radius: 30px;
-    background: rgba(255, 255, 255, .50);
-    backdrop-filter: blur(18px);
-    border: 1px solid rgba(255, 255, 255, .35);
-    box-shadow: 0 20px 45px rgba(0, 0, 0, .12);
-    text-align: center;
-    transition: transform .8s ease, opacity .8s ease, filter .8s ease;
+.card{
+    position:relative;
+    z-index:2;
+
+    width:430px;
+    max-width:90vw;
+
+    padding:35px 30px;
+
+    border-radius:28px;
+
+    background:rgba(255,255,255,.45);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.4);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.12);
+
+    text-align:center;
+
+    transition:.8s;
 }
 
-.card.open {
-    transform: scale(.85);
-    opacity: 0;
-    filter: blur(15px);
+.card.open{
+    transform:scale(.9);
+    opacity:0;
+    filter:blur(12px);
 }
 
-.flower {
-    font-size: 38px;
-    margin-bottom: 10px;
+.flower{
+    font-size:36px;
+    margin-bottom:10px;
 }
 
-h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 34px;
-    color: #6b4d57;
-    margin-bottom: 10px;
+h1{
+    font-family:'Playfair Display',serif;
+    font-size:34px;
+    color:#6b4d57;
+    margin-bottom:10px;
 }
 
-.subtitle {
-    color: #80656e;
-    line-height: 1.6;
-    margin-bottom: 25px;
-    font-size: 15px;
+.subtitle{
+    color:#7f6670;
+    line-height:1.6;
+    margin-bottom:25px;
 }
 
-/* --- BAGIAN YANG DIPERBAIKI --- */
-.characters {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end; /* Gunakan flex-end agar aman di semua browser */
-    gap: 15px; 
-    margin-bottom: 25px;
-    width: 100%; /* Memastikan kontainer tidak melebihi card */
+.characters{
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    gap:15px;
+    margin-bottom:25px;
 }
 
-/* Kunci ukuran elemen img di dalam class characters */
-.characters img {
-    width: 130px; /* Ukuran default di laptop */
-    max-width: 45%; /* Di HP, paksa gambar maksimal mengambil 45% lebar card */
-    height: auto;
-    object-fit: contain;
+.characters img{
+    width:120px;
+    height:auto;
+    animation:float 3.5s ease-in-out infinite;
 }
 
-.girl {
-    animation-delay: 1.2s;
+.girl{
+    animation-delay:1s;
 }
 
-.line {
-    width: 100%;
-    height: 1px;
-    background: rgba(120, 90, 100, .18);
-    margin: 20px 0;
+.line{
+    width:100%;
+    height:1px;
+    background:rgba(120,90,100,.15);
+    margin:20px 0;
 }
 
-button {
-    border: none;
-    cursor: pointer;
-    padding: 14px 28px;
-    border-radius: 18px;
-    background: #ffc0d7;
-    color: white;
-    font-size: 16px;
-    font-weight: 600;
-    transition: .35s;
+button{
+    border:none;
+    cursor:pointer;
+
+    padding:15px 30px;
+
+    border-radius:18px;
+
+    background:#ffc2d8;
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    transition:.3s;
 }
 
-button:hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 10px 25px rgba(255, 170, 200, .45);
+button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 30px rgba(255,170,200,.45);
 }
 
-.quote {
-    color: #8a7078;
-    line-height: 1.6;
-    font-size: 14px;
+.quote{
+    color:#8a7078;
+    line-height:1.7;
+    font-size:14px;
 }
 
-.day {
-    display: block;
-    margin-top: 20px;
-    color: #a98791;
-    font-size: 14px;
+.day{
+    display:block;
+    margin-top:18px;
+    color:#a98791;
 }
 
-@keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
+.dayGirl{
+    width:170px;
+    margin:20px auto;
+    animation:float 3s infinite ease-in-out;
 }
 
-/* Penyesuaian gambar untuk halaman Day 1 agar responsif juga */
-.dayGirl {
-    width: 160px;
-    max-width: 80%;
-    height: auto;
-    margin: 20px auto;
-    animation: float 3s infinite ease-in-out;
+.message{
+    line-height:1.8;
+    color:#7b646d;
+    margin-bottom:20px;
 }
 
-.message {
-    line-height: 1.8;
-    color: #7b646d;
-    margin-bottom: 25px;
-    font-size: 15px;
+#status{
+    margin-top:20px;
+    color:#ff7aa6;
+    font-weight:600;
 }
 
-#status {
-    margin-top: 25px;
-    font-weight: 600;
-    color: #ff7fa9;
-    animation: fade .6s;
-}
+@keyframes float{
 
-@keyframes fade {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
+    0%{
+        transform:translateY(0);
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+
+    50%{
+        transform:translateY(-8px);
     }
+
+    100%{
+        transform:translateY(0);
+    }
+
+}
+
+@media (max-width:768px){
+
+    .card{
+
+        width:92vw;
+
+        padding:25px 18px;
+
+        border-radius:22px;
+
+    }
+
+    h1{
+
+        font-size:28px;
+
+    }
+
+    .subtitle{
+
+        font-size:14px;
+
+    }
+
+    .characters{
+
+        gap:8px;
+
+    }
+
+    .characters img{
+
+        width:38vw;
+        max-width:120px;
+
+    }
+
+    button{
+
+        width:100%;
+
+        font-size:16px;
+
+    }
+
+    .dayGirl{
+
+        width:45vw;
+        max-width:180px;
+
+    }
+
+}
+
+@media (max-width:420px){
+
+    .characters img{
+
+        width:34vw;
+        max-width:105px;
+
+    }
+
+    h1{
+
+        font-size:25px;
+
+    }
+
 }
