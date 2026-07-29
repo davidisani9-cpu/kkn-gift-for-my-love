@@ -1,270 +1,172 @@
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-
-    font-family:'Poppins',sans-serif;
-
-    background:url("assets/bg.png");
-    background-size:cover;
-    background-position:center;
-
-    min-height:100vh;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    overflow:hidden;
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url("assets/bg.png");
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Hanya sembunyikan scroll horizontal agar di layar kecil tetap bisa scroll ke bawah jika kontennya panjang */
+    overflow-x: hidden; 
 }
 
-.overlay{
-
-    position:fixed;
-    inset:0;
-
-    background:rgba(255,255,255,.18);
-    backdrop-filter:blur(6px);
-
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(255,255,255,.18);
+    backdrop-filter: blur(6px);
 }
 
-.card{
-
-    position:relative;
-    z-index:2;
-
-    width:420px;
-    max-width:90%;
-
-    padding:40px;
-
-    border-radius:30px;
-
-    background:rgba(255,255,255,.50);
-
-    backdrop-filter:blur(18px);
-
-    border:1px solid rgba(255,255,255,.35);
-
-    box-shadow:
-    0 20px 45px rgba(0,0,0,.12);
-
-    text-align:center;
+.card {
+    position: relative;
+    z-index: 2;
+    width: 420px;
+    max-width: 90%;
+    padding: 40px;
+    border-radius: 30px;
+    background: rgba(255,255,255,.50);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255,255,255,.35);
+    box-shadow: 0 20px 45px rgba(0,0,0,.12);
+    text-align: center;
+    transition: transform .8s ease, opacity .8s ease, filter .8s ease;
 }
 
-.flower{
-
-    font-size:38px;
-
-    margin-bottom:10px;
-
+.card.open {
+    transform: scale(.85);
+    opacity: 0;
+    filter: blur(15px);
 }
 
-h1{
-
-    font-family:'Playfair Display',serif;
-
-    font-size:38px;
-
-    color:#6b4d57;
-
-    margin-bottom:10px;
-
+.flower {
+    font-size: 38px;
+    margin-bottom: 10px;
 }
 
-.subtitle{
-
-    color:#80656e;
-
-    line-height:1.7;
-
-    margin-bottom:25px;
-
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    color: #6b4d57;
+    margin-bottom: 10px;
 }
 
-.characters{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:end;
-
-    gap:18px;
-
-    margin-bottom:25px;
-
+.subtitle {
+    color: #80656e;
+    line-height: 1.7;
+    margin-bottom: 25px;
 }
 
-.characters{
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:end;
-
-    gap:18px;
-
-    margin-bottom:25px;
-
+.characters {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    gap: 18px;
+    margin-bottom: 25px;
+    width: 100%; /* Memastikan container karakter tidak melebihi card */
 }
 
-.girl{
-
-    animation-delay:1.2s;
-
+/* KODE PENTING: Memaksa gambar karakter mengecil mengikuti layar HP */
+.characters img, 
+.characters > * {
+    max-width: 45%; 
+    height: auto;
+    object-fit: contain;
 }
 
-.line{
-
-    width:100%;
-    height:1px;
-
-    background:rgba(120,90,100,.18);
-
-    margin:20px 0;
-
+.girl {
+    animation-delay: 1.2s;
 }
 
-button{
-
-    border:none;
-
-    cursor:pointer;
-
-    padding:16px 34px;
-
-    border-radius:18px;
-
-    background:#ffc0d7;
-
-    color:white;
-
-    font-size:18px;
-
-    font-weight:600;
-
-    transition:.35s;
-
+.line {
+    width: 100%;
+    height: 1px;
+    background: rgba(120,90,100,.18);
+    margin: 20px 0;
 }
 
-button:hover{
-
-    transform:translateY(-3px) scale(1.03);
-
-    box-shadow:0 10px 25px rgba(255,170,200,.45);
-
+button {
+    border: none;
+    cursor: pointer;
+    padding: 16px 34px;
+    border-radius: 18px;
+    background: #ffc0d7;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    transition: .35s;
 }
 
-.quote{
-
-    color:#8a7078;
-
-    line-height:1.7;
-
-    font-size:15px;
-
+button:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(255,170,200,.45);
 }
 
-.day{
-
-    display:block;
-
-    margin-top:20px;
-
-    color:#a98791;
-
-    font-size:14px;
-
+.quote {
+    color: #8a7078;
+    line-height: 1.7;
+    font-size: 15px;
 }
 
-@keyframes float{
+.day {
+    display: block;
+    margin-top: 20px;
+    color: #a98791;
+    font-size: 14px;
+}
 
-    0%{
-        transform:translateY(0);
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+.dayGirl {
+    width: 180px;
+    max-width: 100%; /* Tambahan agar aman di mobile */
+    margin: 20px 0;
+    animation: float 3s infinite ease-in-out;
+}
+
+.message {
+    line-height: 2;
+    color: #7b646d;
+    margin-bottom: 25px;
+}
+
+#status {
+    margin-top: 25px;
+    font-weight: 600;
+    color: #ff7fa9;
+    animation: fade .6s;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
     }
-
-    50%{
-        transform:translateY(-10px);
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
+}
 
-    100%{
-        transform:translateY(0);
+/* --- TWEAK KHUSUS UNTUK HP (MOBILE RESPONSIVE) --- */
+@media (max-width: 480px) {
+    .card {
+        padding: 30px 20px; /* Mengecilkan padding agar ruang karakter lebih luas */
     }
-
-}
-
-.card{
-
-    transition:
-    transform .8s ease,
-    opacity .8s ease,
-    filter .8s ease;
-
-}
-
-.card.open{
-
-    transform:scale(.85);
-
-    opacity:0;
-
-    filter:blur(15px);
-
-}
-
-.dayGirl{
-
-width:180px;
-
-margin:20px 0;
-
-animation:float 3s infinite ease-in-out;
-
-}
-
-.message{
-
-line-height:2;
-
-color:#7b646d;
-
-margin-bottom:25px;
-
-}
-
-#status{
-
-margin-top:25px;
-
-font-weight:600;
-
-color:#ff7fa9;
-
-animation:fade .6s;
-
-}
-
-@keyframes fade{
-
-from{
-
-opacity:0;
-
-transform:translateY(10px);
-
-}
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
+    h1 {
+        font-size: 30px; /* Mengecilkan font judul sedikit */
+    }
+    .characters {
+        gap: 10px; /* Merapatkan jarak antar karakter di layar sempit */
+    }
 }
