@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Kamu 🌸</title>
+    <link rel="stylesheet" href="style.css?v=4">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="overlay"></div>
+
+    <!-- Musik Latar (Akan otomatis diputar saat tombol pertama diklik) -->
+    <audio id="bgMusic" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- ============================================== -->
+    <!-- 0. HALAMAN SAMPUL (SELALU MUNCUL PERTAMA)      -->
+    <!-- ============================================== -->
+    <main class="card" id="sampulCard">
+        <div class="flower">🌸</div>
+        <h1>Untuk Kamu</h1>
+        <p class="subtitle">Sebuah hadiah kecil selama kamu KKN.</p>
+        <div class="characters">
+            <img src="assets/cowok_idle.png" class="boy">
+            <img src="assets/cewek_idle.png" class="girl">
+        </div>
+        <div class="line"></div>
+        <button id="btnBuka">💌 Buka Surat</button>
+        <div class="line"></div>
+        <p class="quote">"Semoga setiap harimu dipenuhi hal-hal baik."</p>
+    </main>
+
+
+    <!-- ============================================== -->
+    <!-- 1. HARI PERTAMA (30 Juli 2026)                 -->
+    <!-- ============================================== -->
+    <main class="card hidden" id="day1Card">
+        <h1>🌸 Hari Pertama 🌸</h1>
+        
+        <!-- Gambar default hari ini -->
+        <img src="assets/cewek_idle.png" id="d1Image" class="dayGirl">
+        
+        <!-- Sesi Pertanyaan Mood -->
+        <div id="moodSection">
+            <p class="message" style="font-weight: 600; color: #6b4d57;">Hari ini suasana hatimu gimana sayannggg?</p>
+            <div class="mood-grid">
+                <button class="mood-btn" onclick="pilihMood(1)">😊 Mood aku bagus</button>
+                <button class="mood-btn" onclick="pilihMood(2)">😴 Aku kurang tidur</button>
+                <button class="mood-btn" onclick="pilihMood(3)">😐 Mood aku biasa aja</button>
+                <button class="mood-btn" onclick="pilihMood(4)">😞 Moodku jelek jangan ganggu aku</button>
+            </div>
+        </div>
+
+        <!-- Sesi Jawaban (Awalnya Disembunyikan) -->
+        <div id="responseSection" class="hidden">
+            <p class="message" id="responseText"></p>
+            <button id="hugBtn">🤍 Peluk Virtual</button>
+            <div id="status"></div>
+        </div>
+    </main>
+
+
+    <!-- ============================================== -->
+    <!-- 2. HARI KEDUA (31 Juli 2026)                   -->
+    <!-- ============================================== -->
+    <main class="card hidden" id="day2Card">
+        <h1>🌸 Hari Kedua 🌸</h1>
+        <img src="assets/cewek_happy.png" class="dayGirl">
+        <p class="message">
+            Hai sayanggg 🤍<br><br>
+            Ini hari kedua kamu. (Silakan edit pesan ini sesukamu untuk hari kedua!)
+        </p>
+    </main>
+
+
+    <!-- ============================================== -->
+    <!-- 3. HARI KETIGA (1 Agustus 2026)                -->
+    <!-- ============================================== -->
+    <main class="card hidden" id="day3Card">
+        <h1>🌸 Hari Ketiga 🌸</h1>
+        <img src="assets/cewek_wave.png" class="dayGirl">
+        <p class="message">Semangat hari ketiga sayanggg! (Edit pesannya di sini)</p>
+    </main>
+
+
+    <!-- ============================================== -->
+    <!-- 4. HARI KEEMPAT (2 Agustus 2026)               -->
+    <!-- ============================================== -->
+    <main class="card hidden" id="day4Card">
+        <h1>🌸 Hari Keempat 🌸</h1>
+        <img src="assets/cewek_sleepy.png" class="dayGirl">
+        <p class="message">Gimana KKN-nya hari ini? (Edit pesannya di sini)</p>
+    </main>
+
+
+    <!-- ============================================== -->
+    <!-- 5. HARI KELIMA (3 Agustus 2026)                -->
+    <!-- ============================================== -->
+    <main class="card hidden" id="day5Card">
+        <h1>🌸 Hari Kelima 🌸</h1>
+        <img src="assets/cewek_happy.png" class="dayGirl">
+        <p class="message">Yeyyy hari kelima! (Edit pesannya di sini)</p>
+    </main>
+
+
+    <!-- ============================================== -->
+    <!-- KONDISI JIKA BELUM WAKTUNYA DIBUKA             -->
+    <!-- ============================================== -->
+    <main class="card hidden" id="lockedCard">
+        <h1>🔒 Belum Waktunya 🔒</h1>
+        <img src="assets/cowok_idle.png" class="dayGirl">
+        <p class="message">
+            Sabar ya sayanggg...<br>
+            Hadiah hari ini belum kebuka. Kembalilah besok pagi! 🤍
+        </p>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
