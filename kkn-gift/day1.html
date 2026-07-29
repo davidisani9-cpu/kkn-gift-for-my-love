@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hari Pertama</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="overlay"></div>
+
+<div class="card dayCard">
+
+<h1>🌸 Hari Pertama 🌸</h1>
+
+<img src="assets/cewek_happy.png" class="dayGirl">
+
+<p class="message">
+
+Hai sayang 🤍
+
+<br><br>
+
+Hari pertama KKN akhirnya dimulai.
+
+Semoga hari ini lancar ya.
+
+Jangan lupa makan.
+
+Jangan lupa minum.
+
+Kalau capek, istirahat.
+
+i always waiting for you
+
+</p>
+
+<button id="hug">
+
+🤍 Peluk Virtual
+
+</button>
+
+<div id="status"></div>
+
+</div>
+
+<script>
+
+const btn=document.getElementById("hug");
+
+btn.onclick=()=>{
+
+btn.innerHTML="💖 Peluk Terkirim";
+
+document.getElementById("status").innerHTML="✨ Semoga peluk virtualnya sampai yaa ✨";
+
+}
+
+</script>
+
+</body>
+
+</html>
