@@ -101,7 +101,10 @@ h1{
 
 .characters img{
 
-    width:110px;
+   .character img{
+    width:min(180px, 60vw);
+    
+       height:auto;
 
     animation:float 3.5s ease-in-out infinite;
 
