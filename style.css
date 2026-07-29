@@ -13,8 +13,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Hanya sembunyikan scroll horizontal agar di layar kecil tetap bisa scroll ke bawah jika kontennya panjang */
-    overflow-x: hidden; 
+    overflow: hidden; /* Dikembalikan persis ke kode aslimu */
 }
 
 .overlay {
@@ -69,8 +68,6 @@ h1 {
     align-items: end;
     gap: 18px;
     margin-bottom: 25px;
-    width: 100%; /* Memastikan container karakter tidak melebihi card */
-    
 }
 
 .girl {
@@ -122,7 +119,6 @@ button:hover {
 
 .dayGirl {
     width: 180px;
-    max-width: 100%; /* Tambahan agar aman di mobile */
     margin: 20px 0;
     animation: float 3s infinite ease-in-out;
 }
@@ -141,25 +137,28 @@ button:hover {
 }
 
 @keyframes fade {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- TWEAK KHUSUS UNTUK HP (MOBILE RESPONSIVE) --- */
+/* --- KODE TAMBAHAN KHUSUS UNTUK HP (MOBILE FIX) --- */
 @media (max-width: 480px) {
-    .card {
-        padding: 30px 20px; /* Mengecilkan padding agar ruang karakter lebih luas */
+    /* Hanya mengecilkan gambar/elemen di dalam karakter, tanpa mengganggu posisi aslinya */
+    .characters img, 
+    .characters > * {
+        width: 120px !important; 
+        margin: 5px 0 !important; 
     }
-    h1 {
-        font-size: 30px; /* Mengecilkan font judul sedikit */
-    }
+    
     .characters {
-        gap: 10px; /* Merapatkan jarak antar karakter di layar sempit */
+        gap: 5px; /* Sedikit merapatkan karakter agar muat di layar HP */
+    }
+    
+    .card {
+        padding: 30px 20px; /* Kurangi sedikit ketebalan card agar ruang di dalam lebih luas */
+    }
+    
+    h1 {
+        font-size: 32px; 
     }
 }
